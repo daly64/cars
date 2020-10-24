@@ -2,28 +2,32 @@ import  React,{ Component } from 'react'
 import Car from './Cars';
 
 export default class MyCars extends Component {
-    noCopy = () => {
-        alert("merci de ne pas copier le text");
+    state = {
+        title: "Mon Catalogue Voitures",
+        voitures: [
+            { nom: "ford", color: "red", year: 2000 },
+            { nom: "mercedes", color: "red", year: 2010 },
+            { nom: "peugot", color: "red", year: 2018 },
+        ],
     }
-/*     addStyle = (e) => {
-        let target = e.target.classList;
-        if (target.contains("styled")) {
-            target.remove("styled");
-        } else {
-            target.add("styled");
-        }
-    } */
+
+    addTenYears = () => {
+        let updatedState = this.state.voitures.map(e => {
+            return e.year -= 10;
+        });
+
+        this.setState({ updatedState })
+    };
 
     render() {
-        const { title } = this.props;
+        let carsList = this.state.voitures.map((voiture, index) => {
+            return <Car key={index} voiture={voiture} />
+        });
         return (
             <div>
-                <h1>{title}</h1>
-
-                <p onCopy={this.noCopy}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi molestias saepe velit nesciunt voluptas iusto officiis ratione. Veniam facere, blanditiis non quidem maiores mollitia vitae autem vel culpa odit? Maiores?</p>
-                <Car color='red'>ford</Car>
-                <Car >mercedes</Car>
-                <Car />
+                <h1>{this.state.title}</h1>
+                <button onClick={this.addTenYears}>+10 ans</button>
+                {carsList}
 
             </div>
         )
