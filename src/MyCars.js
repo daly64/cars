@@ -21,22 +21,37 @@ export default class MyCars extends Component {
 
     render() {
         let carsList = this.state.voitures.map((voiture, index) => {
-            return <Car key={index} voiture={voiture} />
+            return (
+                <tr key={index}>
+                    <Car  voiture={voiture} />
+                </tr>
+                
+            );
+
+
+
+
         });
         return (
-            <>
+            <div>
                 <h1>{this.state.title}</h1>
                 <button onClick={this.addTenYears}>+10 ans</button>
                 <table className="carsTable">
-                    <tr>
-                        <th>marque</th>
-                        <th>couleur</th>
-                        <th>age</th>
-                    </tr>
-                {carsList}
+                    <thead>
+                        <tr>
+                            <th>marque</th>
+                            <th>couleur</th>
+                            <th>age</th>
+                        </tr>           
+                    </thead>
+
+                    <tbody>
+                   {carsList}     
+                    </tbody>
+
                 </table>
 
-            </>
+            </div>
         )
     }
 }

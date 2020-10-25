@@ -1,21 +1,21 @@
 import React,{Fragment} from 'react';
 import './Cars.css';
-const Cars = ({ voiture}) => {
-    let year = new Date().getFullYear();
-    let age = year - voiture.year + " ans";
-
-    const colorInfo = voiture.color ? (<td>{voiture.color} </td>) : (<td>couleur : Néant </td>);
-    const yearInfo = age ? (<td> {age} </td>) : (<td> Néant </td>);
+const Cars = ({voiture}) => {
+    let{nom,color,year}=voiture;
+  
+    let curentYear = new Date().getFullYear();
+    let age = `${curentYear - year} ans`;
+    const colorInfo = color ? (`${color}`) : ("couleur : Néant");
+    const yearInfo = age ? (`${age}`) : ("Néant");
     
-    return (voiture.nom) ?
+    return (nom) ?
         (
-            <Fragment className="cars">
-                <tr> 
-                    <td>{voiture.nom}</td>
-                {colorInfo}
-               {yearInfo}
-               </tr>
-               
+            <Fragment>
+             <td>{nom}</td>
+             <td>{colorInfo}</td>
+             <td>{yearInfo} </td>
+                    
+                              
             </Fragment>
         ) :
         (null);
