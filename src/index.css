@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.carsTable {
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: 20px auto;
+
+}
+
+.carsTable td,
+.carsTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 33%;
+  text-align: center;
+}
+.carsTable tr:hover {
+  background-color: #ddd;
+}
+.carsTable th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #1863a0;
+  color: white;
+}

@@ -24,12 +24,19 @@ export default class MyCars extends Component {
             return <Car key={index} voiture={voiture} />
         });
         return (
-            <div>
+            <>
                 <h1>{this.state.title}</h1>
                 <button onClick={this.addTenYears}>+10 ans</button>
+                <table className="carsTable">
+                    <tr>
+                        <th>marque</th>
+                        <th>couleur</th>
+                        <th>age</th>
+                    </tr>
                 {carsList}
+                </table>
 
-            </div>
+            </>
         )
     }
 }

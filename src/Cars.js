@@ -1,19 +1,22 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import './Cars.css';
 const Cars = ({ voiture}) => {
     let year = new Date().getFullYear();
     let age = year - voiture.year + " ans";
 
-    const colorInfo = voiture.color ? (<p>couleur : {voiture.color} </p>) : (<p>couleur : Néant </p>);
-    const yearInfo = age ? (<p>age : {age} </p>) : (<p>age : Néant </p>);
+    const colorInfo = voiture.color ? (<td>{voiture.color} </td>) : (<td>couleur : Néant </td>);
+    const yearInfo = age ? (<td> {age} </td>) : (<td> Néant </td>);
     
     return (voiture.nom) ?
         (
-            <div className="cars">
-                <p>marque : {voiture.nom}</p>
+            <Fragment className="cars">
+                <tr> 
+                    <td>{voiture.nom}</td>
                 {colorInfo}
                {yearInfo}
-            </div>
+               </tr>
+               
+            </Fragment>
         ) :
         (null);
 
